@@ -10,11 +10,27 @@ public final class MunicipalityConverter implements Converter<MunicipalityReques
 
     @Override
     public MunicipalityResponseDto toDto(Municipality entity) {
-        return null;
+        return new MunicipalityResponseDto(entity.getRegionCode(), entity.getProvinceCode(), entity.getMunicipalityCode(),
+                entity.getMunicipalitySigle(), entity.getMunicipalityName(), entity.getRegionName(),
+                entity.getCadastralCode(),entity.getTerritorialUnitType(), entity.getCapitalsMunicipality(),
+                entity.getLatitude(),entity.getLongitude(),entity.getAltitude());
     }
 
     @Override
     public Municipality toEntity(MunicipalityRequestDto model) {
-        return null;
+        Municipality entity = new Municipality();
+        entity.setAltitude(model.altitude());
+        entity.setLatitude(model.latitude());
+        entity.setLongitude(model.longitude());
+        entity.setCapitalsMunicipality(model.capitalsMunicipality());
+        entity.setCadastralCode(model.cadastralCode());
+        entity.setMunicipalityCode(model.municipalityCode());
+        entity.setMunicipalityName(model.municipalityName());
+        entity.setMunicipalitySigle(model.municipalitySigle());
+        entity.setProvinceCode(model.provinceCode());
+        entity.setRegionCode(model.regionCode());
+        entity.setRegionName(model.regionName());
+        entity.setTerritorialUnitType(model.territorialUnitType());
+        return entity;
     }
 }

@@ -10,7 +10,6 @@ import com.reactive.quarkus.municipality.repository.MunicipalityRepository;
 import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.validation.Valid;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -31,6 +30,7 @@ public final class MunicipalityService {
                         .collect(Collectors.toSet()));
     }
 
-    public Uni<Either<Error, SaveMunicipalityResponseDto>> createMunicipality(@Valid MunicipalityRequestDto municipalityRequestDto) {
+    public Uni<Either<Error, SaveMunicipalityResponseDto>> createMunicipality(MunicipalityRequestDto municipalityRequestDto) {
+
     }
 }
