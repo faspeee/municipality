@@ -70,14 +70,14 @@ public final class ProcessResponses {
      * <p>Example:
      * <pre>
      *   // When the result is a Right (success):
-     *   Either<Error, Person> right = Either.right(new Person("John", "Doe"));
+     *   Either<Error, Municipality> right = Either.right(new Municipality("New York", "NY"));
      *   processTheResultFromService(Uni.createFrom().item(right), Response.Status.OK);
-     *   // Returns: 200 OK with Person data
+     *   // Returns: 200 OK with Municipality data
      * </pre>
      *
      * <pre>
      *   // When the result is a Left (error):
-     *   Either<Error, Person> left = Either.left(new PersonNotFound());
+     *   Either<Error, Municipality> left = Either.left(new MunicipalityNotFound());
      *   processTheResultFromService(Uni.createFrom().item(left), Response.Status.OK);
      *   // Returns: 404 Not Found
      * </pre>
@@ -103,7 +103,7 @@ public final class ProcessResponses {
      *
      * <p>Example:
      * <pre>
-     *   checkLeft(new AddressNotFound());
+     *   checkLeft(new MunicipalityNotFound());
      *   // Returns: 404 Not Found response
      * </pre>
      *
@@ -137,8 +137,8 @@ public final class ProcessResponses {
      *
      * <p>Example:
      * <pre>
-     *   createMonoError(Response.Status.NOT_FOUND, new PersonNotFound());
-     *   // Returns: 404 Not Found response with PersonNotFound error message
+     *   createMonoError(Response.Status.NOT_FOUND, new MunicipalityNotFound());
+     *   // Returns: 404 Not Found response with MunicipalityNotFound error message
      * </pre>
      *
      * @param httpStatus the HTTP status for the error response
